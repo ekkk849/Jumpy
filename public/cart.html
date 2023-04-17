@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./index.css">
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<title>cart</title>
+
+    </head>
+    <body>
+        <div class="footer">
+            <a href="./homepage.html"><img src='../images/homepage.png'/></a>
+            <a href="./categories.html"><img src='../images/menu.png'/></a>
+            <a href="./cart.html"><img src='../images/shopping-cart.png'/></a>
+            
+        </div>
+        <div class="wrapper" style="height: 100vh;">
+            <div class="header">
+            
+            
+        
+                <div class="headerLeft">
+                    <div  onclick="goBack()" style="position:fixed;"><img src="./images/left-arrow.png" style="width:7vw"></div> 
+                </div>
+                
+            </div>
+
+
+            <h1 style="margin-left: 7.5vw;">Your Cart</h1>
+            <div class="cart-items-wrapper" id="cartWrapper">
+                <div class="cart-item">
+                    <div class="cart-item-left">
+                        <img src="./images/cardigan_1.jpg">
+                      </div>
+                      <div class="cart-item-right">
+                        <p>Color: white</p>
+                        <p>Price: 125</p>
+                        <p>Quantity: 2</p>
+                      </div>
+                </div>
+                <div class="cart-item">
+                    <div class="cart-item-left">
+                        <img src="./images/cardigan_2.jpg">
+                      </div>
+                      <div class="cart-item-right">
+                        <p>Color: white</p>
+                        <p>Price: 125</p>
+                        <p>Quantity: 2</p>
+                      </div>
+                </div>
+            </div>
+
+            <hr/>
+            <div class="total-wrapper">
+                <p >Total</p>
+                <p id="total">125</p>
+            </div>
+
+            <button style="position:relative; left:50vw; transform: translateX(-50%); border-radius: 3vw; background-color: beige; border:.3vw solid black; width: 25vw; height: 3vh;" >
+                Checkout
+            </button>
+            <div class="filler">
+                
+            </div>
+        </div>
+
+
+        <script>
+
+            var total =0;
+            function goBack(){
+                window.history.back(); console.log('clicked')
+            }
+        
+            window.onload = () =>{
+                var request = window.indexedDB.open("my-database", 1);
+                
+                request.onerror = function(event) {
+                console.log("Failed to open database");
+                };
+
+                request.onsuccess = function(event) {
+                var db = event.target.result;
+                var tx = db.transaction("shoppingCart", "readonly");
+                var objectStore = tx.objectStore("shoppingCart");
+
+                var cursorRequest = objectStore.openCursor();
+
+                var count = 0;
+
+                cursorRequest.onerror = function(event) {
+                    console.log("Failed to iterate through object store");
+                };
+
+                cursorRequest.onsuccess = (event)=>{
+const cursor = event.target.result;
+if(cursor){
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+
+    var html = '<div class="cart-item-left"><img src=' +    cursor.value.image[0] +'> </div>'
+    html+= '<div class="cart-item-right"><p>Color:'+ cursor.value.colors[0]  + '</p><p>' + cursor.value.price  + '</p><p> Quantity: 1 </p></div>'
+                        
+              total += cursor.value.price;  
+                    
+    item.innerHTML =  html;
+            
+      
+           document.getElementById('cartWrapper').appendChild(item);     
+                      
+                
+    console.log(html);            
+                    
+                
+    cursor.continue();
+}
+
+                }
+
+
+            }
+
+            document.getElementById('total').innerHTML = total;
+            }
+        
+            
+        </script>
+        <script src="/js/app.js"></script>
+    </body>
+</html>

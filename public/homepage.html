@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/index.css">
+        <link rel="manifest" href="/manifest.json">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <title>Jumpy | Home</title>
+        
+    </head>
+    <body>
+        
+        <div class="footer">
+            <a href="./homepage.html"><img src='../images/homepage.png'/></a>
+            <a href="./categories.html"><img src='../images/menu.png'/></a>
+            <a href="./cart.html"><img src='../images/shopping-cart.png'/></a>
+            
+        </div>
+        <div class="wrapper">
+            <div class="header">
+            
+            
+        
+                <div class="headerLeft">
+                    <h1>Jumpy</h1>
+                </div>
+                <div class="headerRight">
+                    <div class="search">
+                        <form name="searchBar">
+                        <Select id="SelectTab" class="hidden">
+                            <Option value="All">All</Option>
+                            <Option value="men's">Men's</Option>
+                            <Option value="women's">Women's</Option>
+                            
+                        </Select>
+                    
+                        <input type="text" id="search-bar" name="searchBar" class="hidden" >
+                        <input type="submit" class="hidden" onsubmit="tester"/>
+                    </form>
+                        <a onclick="toggleSearch() ">                        <img src="../images/search.png" id="searchIcon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero" >
+                    <div class="slide">
+                        <img src="../images/male1.jpg"/>
+    
+                    </div>
+                    <div class="slide" >
+                        <img src="../images/male2.jpg"/>
+    
+                    </div>
+                    <div class="slide">
+                        <img src="../images/woman1.jpg"/>
+    
+    
+                    </div>
+                    <div class='dots' style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+            </div>
+
+
+            <div class="category">
+                <h1>New From Mens</h1>
+                <div class="itemsWrapper"  id="mens-itemsWrapper">
+                   
+                    
+                </div>
+               
+            </div>
+            <div class="category">
+                <h1>New From Womens</h1>
+                <div class="itemsWrapper" id="womens-itemsWrapper">
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div style="height: 10vh;"></div>
+       
+
+        
+
+        <script src="/js/app.js"></script>
+        <script rel="text/javascript" src="/js/script.js"></script>
+        
+        
+    </body>
+</html>

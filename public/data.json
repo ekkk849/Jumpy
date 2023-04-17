@@ -1,0 +1,136 @@
+[{
+    "id": "1",
+    "title":"Wool Jacket",
+    "price":"350",
+    "colors":["brown","black","navy"],
+    "image":["./images/male.jpg"],
+    "category":"mens",
+    "subCat":"Jackets"
+
+},{
+    "id": "2",
+    "title":"Lapel Jacket",
+    "price":"200",
+    "colors":["brown","black","navy"],
+    "image":["./images/male1.jpg"],
+    "category":"mens",
+    "subCat":"Jackets"
+
+},{
+    "id": "3",
+    "title":"Ripped Jeans",
+    "price":"150",
+    "colors":["blue"],
+    "image":["./images/male3.jpg"],
+    "category":"mens",
+    "subCat":"Pants"
+
+},{
+    "id": "4",
+    "title":"Straight Pants",
+    "price":"150",
+    "colors":["brown","white"],
+    "image":["./images/male2.jpg"],
+    "category":"mens",
+    "subCat":"Pants"
+
+},{
+    "id": "5",
+    "title":"Collard Shirt",
+    "price":"150",
+    "colors":["white","black","green"],
+    "image":["./images/tshirt_1.jpg","./images/tshirt_2.jpg"],
+    "category":"womens",
+    "subCat":"Jackets"
+
+},{
+    "id": "6",
+    "title":"High Waist Jean",
+    "price":"200",
+    "colors":["blue"],
+    "image":["./images/highjean_1.jpg","./images/highjean_2.jpg"],
+    "category":"womens",
+    "subCat":"Jeans"
+
+},{
+    "id": "7",
+    "title":"Ripped Jeans",
+    "price":"180",
+    "colors":["blue"],
+    "image":["./images/bfjean_1.jpg","./images/bfjean_2.jpg"],
+    "category":"womens",
+    "subCat":"Jeans"
+
+},{
+    "id": "8",
+    "title":"Mom Jean",
+    "price":"30",
+    "colors":["blue"],
+    "image":["./images/momjean_1.jpg","./images/momjean_2.jpg"],
+    "category":"womens",
+    "subCat":"jeans"
+
+},{
+    "id": "9",
+    "title":"Beach Dress",
+    "price":"125",
+    "colors":["white","beige"],
+    "image":["./images/woman2.jpg"],
+    "category":"womens",
+    "subCat":"Dresses"
+
+},{
+    "id": "10",
+    "title":"Dragon Tee",
+    "price":"100",
+    "colors":["black"],
+    "image":["./images/woman1.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+},{
+    "id": "11",
+    "title":"Leather Jacket",
+    "price":"350",
+    "colors":["black","brown"],
+    "image":["./images/woman3.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+},{
+    "id": "12",
+    "title":"Tanktop",
+    "price":"75",
+    "colors":["brown","black","white","pink"],
+    "image":["./images/tanktop_1.jpg","./images/tanktop_2.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+},{
+    "id": "13",
+    "title":"Graphic Tee",
+    "price":"125",
+    "colors":["white","black"],
+    "image":["./images/overt_1.jpg","./images/overt_2.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+},{
+    "id": "14",
+    "title":"Basic Hoodie",
+    "price":"250",
+    "colors":["brown","black","navy","green","pink","grey"],
+    "image":["./images/hood_1.jpg","./images/hood_2.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+},{
+    "id": "15",
+    "title":"Cardigan",
+    "price":"100",
+    "colors":["white","black","red"],
+    "image":["./images/cardigan_1.jpg","./images/cardigan_2.jpg"],
+    "category":"womens",
+    "subCat":"Tops"
+
+}]

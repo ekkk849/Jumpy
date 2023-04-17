@@ -1,0 +1,21 @@
+.payment {
+    width: 100%;
+}
+
+.paymentSummary {
+   margin-left: 5vw;
+}
+
+.cardDetails {
+    text-align: center;
+}
+
+
+.paymentMethod{
+    margin-left:5vw;
+}
+.COD {
+    text-align: center;
+    padding: 10%;
+    padding-bottom: 0%;
+}

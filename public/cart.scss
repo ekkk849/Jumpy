@@ -1,0 +1,30 @@
+
+
+
+
+@media screen and (max-width:600px){
+
+    body{
+        background-color: bl;
+    }
+    .header{
+        
+        .hidden{
+            display: none;
+        }
+    
+    
+        
+        img{
+            transform: translateY(20%);
+            
+            display: relative;
+            aspect-ratio: 1;
+            right:0;
+        }
+    }
+
+
+    img{height: 100%;
+    object-fit: cover;}
+}

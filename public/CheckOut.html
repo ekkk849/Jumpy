@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		   <link rel="stylesheet" href="./index.css">
+		   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<title>Checkout Page</title>
+</head>
+<body>
+	<header>
+	 <nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+	<h1 style="color:red" >Checkout Page</h1>
+</nav>
+</header>
+
+	<!-- Retrieve cart items from IndexedDB -->
+	<script>
+		// Open the database
+		let request = indexedDB.open('my-db', 1);
+		let db;
+
+		request.onerror = function(event) {
+			console.log('Database error: ' + event.target.errorCode);
+		};
+
+		request.onsuccess = function(event) {
+			console.log('Database opened successfully');
+			db = event.target.result;
+
+			// Retrieve cart items
+			let transaction = db.transaction('cart', 'readonly');
+			let store = transaction.objectStore('cart');
+			let cartItems = [];
+
+			store.openCursor().onsuccess = function(event) {
+				let cursor = event.target.result;
+				if (cursor) {
+					cartItems.push(cursor.value);
+					cursor.continue();
+				} else {
+					// Display cart items and calculate total cost
+					let totalPrice = 0;
+					for (let i = 0; i < cartItems.length; i++) {
+						let item = cartItems[i];
+						let itemPrice = item.price * item.quantity;
+						totalPrice += itemPrice;
+						document.write('<li>' + item.name + ': ' + itemPrice + '</li>');
+					}
+					document.write('<li><strong>Total Cost:</strong> ' + totalPrice + '</li>');
+				}
+			};
+		};
+
+		request.onupgradeneeded = function(event) {
+			console.log('Database upgrade needed');
+			let db = event.target.result;
+
+			// Create cart object store
+			let objectStore = db.createObjectStore('cart', { keyPath: 'id', autoIncrement: true });
+
+			// Add test data
+			objectStore.add({ name: 'Shirt', price: 20, quantity: 2 });
+			objectStore.add({ name: 'Pants', price: 30, quantity: 1 });
+		};
+	</script>
+
+	<!-- Ask for payment options and delivery location -->
+	<div>
+		<h2>Payment and Delivery</h2>
+		<form>
+			<label for="payment">Payment Method:</label>
+			<select id="payment">
+				<option value="credit-card">Credit Card</option>
+				<option value="paypal">PayPal</option>
+			</select>
+			<br>
+			<label for="address">Delivery Address:</label>
+			<input type="text" id="address">
+			<br>
+			<button type="submit">Place Order</button>
+		</form>
+	</div>
+
+	<script>
+		// Save the order to the database
+		let form = document.querySelector('form');
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			let paymentMethod = document.querySelector('#payment').value;
+			let deliveryAddress = document.querySelector('#address').value;
+
+			let transaction = db.transaction('orders', 'readwrite');
+			let store = transaction.objectStore('orders');
+
+			store.add({ paymentMethod: paymentMethod, deliveryAddress: deliveryAddress });
+
+			alert('Order placed successfully');
+		});
+	</script>
+</body>
+</html>

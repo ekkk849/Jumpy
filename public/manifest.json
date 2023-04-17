@@ -1,0 +1,17 @@
+{
+    "short_name": "Jumpy",
+    "name": "Jumpy",
+    "description": "Fashion as Unique as You",
+    "start_url": "/homepage",
+    "scope": "/",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/images/app-icon.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "theme_color": "#fdf8f1",
+    "background_color": "#fdf8f1"
+}

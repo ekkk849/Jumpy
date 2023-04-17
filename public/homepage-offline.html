@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <title>Jumpy | Offline</title>
+
+        <style>
+            .offline {
+                text-align: center;
+                padding: 5%;
+            }
+            .icon {
+                width: 10%;
+                height: 10%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="footer">
+            <a href="./homepage.html"><img src='./images/homepage.png'/></a>
+            <a href="./categories.html"><img src='./images/menu.png'/></a>
+            <a href="./cart.html"><img src='./images/shopping-cart.png'/></a>
+
+        </div>
+
+        <div class="wrapper">
+            <div class="header">
+
+
+
+                <div class="headerLeft">
+                    <h1>Jumpy</h1>
+                </div>
+                <div class="headerRight">
+                    <div class="search">
+                        <form name="searchBar">
+                        <Select id="SelectTab" class="hidden">
+                            <Option value="All">All</Option>
+                            <Option value="men's">Men's</Option>
+                            <Option value="women's">Women's</Option>
+
+                        </Select>
+
+                        <input type="text" id="search-bar" name="searchBar" class="hidden" >
+                        <input type="submit" class="hidden" onsubmit="tester"/>
+                    </form>
+                        <a onclick="toggleSearch() ">                        <img src="./images/search.png" id="searchIcon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offline">
+                <img src="./images/offline.png" class="icon">
+
+                <h1>It looks like you are offline</h1>
+
+                <h3>Dont worry! Your items have still been saved to your cart</h3>
+
+                <h3>You can complete your purchase when you are next connected to the internet</h3>
+
+                <h5>If you require assistance, feel free to contact us!</h5>
+
+                <a href="tel:80058679">800-JUMPY</a>
+            </div>
+        </div>
+        <div style="padding: 5%;"></div>
+    </body>
+</html>
